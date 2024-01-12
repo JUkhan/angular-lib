@@ -3,7 +3,11 @@
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^15.2.0",
-    "@angular/core": "^15.2.0"
+    "@angular/core": "^15.2.0",
+    "sequential-workflow-designer": "^0.18.0",
+    "sequential-workflow-designer-angular": "^0.18.0",
+    "ag-grid-angular": "^30.2.0",
+    "ag-grid-community": "^30.2.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

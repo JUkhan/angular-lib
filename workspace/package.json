@@ -14,7 +14,10 @@
     "showcase:watch": "ng build showcase --watch --configuration development",
     "showcase:test": "ng test showcase",
     "styles": "tailwindcss -c projects/streamstech/ui-sdk/tailwind.config.js -o projects/streamstech/ui-sdk/src/assets/styles.css",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "goto": "cd dist/streamstech/ui-sdk/ && npm publish --registry http://702.7.127.678:4873/",
+    "lib:publish": "npm-run-all clean styles lib:build goto",
+    "addUser": "npm adduser --registry http://702.7.127.678:4873/"
   },
   "private": true,
   "dependencies": {
@@ -36,9 +39,12 @@
     "@angular-devkit/build-angular": "^15.2.10",
     "@angular/cli": "~15.2.10",
     "@angular/compiler-cli": "^15.2.0",
+    "@angular/material-moment-adapter": "15.2.9",
     "@tailwindcss/line-clamp": "^0.4.0",
     "@tailwindcss/typography": "^0.5.4",
     "@types/jasmine": "~4.3.0",
+    "ag-grid-angular": "^30.2.0",
+    "ag-grid-community": "^30.2.0",
     "autoprefixer": "^10.4.16",
     "chroma-js": "^2.4.2",
     "jasmine-core": "~4.5.0",
@@ -47,10 +53,13 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "moment": "^2.30.1",
     "ng-packagr": "^15.2.2",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.31",
     "rimraf": "^5.0.5",
+    "sequential-workflow-designer": "^0.18.0",
+    "sequential-workflow-designer-angular": "^0.18.0",
     "tailwindcss": "^3.3.5",
     "typescript": "~4.9.4",
     "wait-on": "^7.2.0"

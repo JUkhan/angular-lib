@@ -1,0 +1,80 @@
+<sqd-designer
+  theme="light"
+  [undoStackSize]="10"
+  [definition]="definition"
+  [toolboxConfiguration]="toolboxConfiguration"
+  [stepsConfiguration]="stepsConfiguration"
+  [validatorConfiguration]="validatorConfiguration"
+  [controlBar]="true"
+  [selectedStepId]="selectedStepId"
+  [isReadonly]="isReadonly"
+  [isToolboxCollapsed]="isToolboxCollapsed"
+  [isEditorCollapsed]="isEditorCollapsed"
+  [areEditorsHidden]="false"
+  [rootEditor]="rootEditor"
+  [stepEditor]="stepEditor"
+  (onReady)="onDesignerReady($event)"
+  (onDefinitionChanged)="onDefinitionChanged($event)"
+  (onSelectedStepIdChanged)="onSelectedStepIdChanged($event)"
+  (onIsToolboxCollapsedChanged)="onIsToolboxCollapsedChanged($event)"
+  (onIsEditorCollapsedChanged)="onIsEditorCollapsedChanged($event)"
+>
+</sqd-designer>
+
+<ng-template #rootEditor let-editor>
+  <p class="text-2xl text mt-2">Root</p>
+
+  
+  <mat-form-field class="full-width mt-8">
+    <mat-label>Description</mat-label>
+    <textarea
+      matInput
+      rows="2"
+      [value]="editor.definition.properties.description||''"
+      [readonly]="editor.isReadonly"
+      (input)="
+        updateProperty(
+          editor.definition.properties,
+          'description',
+          $event,
+          editor.context
+        )
+      "
+    ></textarea>
+  </mat-form-field>
+
+</ng-template>
+
+<ng-template #stepEditor let-editor>
+     <p class="text-2xl text mt-2">Step</p>
+      <mat-form-field class="full-width mt-8">
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          type="text"
+          [value]="editor.step.name"
+          [readonly]="editor.isReadonly"
+          (input)="updateName(editor.step, $event, editor.context)"
+        />
+      </mat-form-field>
+     
+      <mat-form-field class="full-width">
+        <mat-label>Description</mat-label>
+        <textarea
+          matInput
+          rows="2"
+          [value]="editor.step.properties.description||''"
+          [readonly]="editor.isReadonly"
+          (input)="
+            updateProperty(
+              editor.step.properties,
+              'description',
+              $event,
+              editor.context
+            )
+          "
+        ></textarea>
+      </mat-form-field>
+    
+    </ng-template>
+    
