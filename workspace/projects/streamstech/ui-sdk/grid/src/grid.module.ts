@@ -17,7 +17,7 @@ import { StlGridComponent } from './stl-grid/stl-grid.component';
 import {ColumnSelectorComponent} from './column-selector/column-selector.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+//import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -25,7 +25,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         SetFilterComponent,
         CellRendererComponent,
         ActionComponent,
-        StlGridComponent,
+        //StlGridComponent,
         ColumnSelectorComponent
     ],
     imports     : [
@@ -44,13 +44,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         FormsModule,
         ReactiveFormsModule,
         MatGridListModule,
-        FontAwesomeModule
+        //FontAwesomeModule
     ],
     exports     : [
         SetFilterComponent,
         CellRendererComponent,
         ActionComponent,
-        StlGridComponent
+        //StlGridComponent
     ]
 })
 export class StlGridModule

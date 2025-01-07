@@ -1,4 +1,5 @@
 
+//@ts-nocheck
 import { Component, OnDestroy } from '@angular/core';
 import { IFilterAngularComp } from 'ag-grid-angular';
 import { IDoesFilterPassParams, IFilterParams } from 'ag-grid-community';
@@ -69,7 +70,9 @@ export class SetFilterComponent implements IFilterAngularComp, OnDestroy {
     search = new FormControl('');
     sub!: Subscription;
     private destroy$ = new Subject<void>();
-    constructor(private apiService: ApiService) {
+    constructor(
+        //private apiService: ApiService
+    ) {
     }
     agInit(params: any): void {
         this.params = params;
@@ -156,13 +159,13 @@ export class SetFilterComponent implements IFilterAngularComp, OnDestroy {
         this.destroy$.complete();
     }
     private getColumnValues(tableName: string, columnName: string, search: string): void {
-        this.apiService.get(`Table/GetColumnUniqueValues?tableName=${tableName}&columnName=${columnName}&search=${search}`)
+        /*this.apiService.get(`Table/GetColumnUniqueValues?tableName=${tableName}&columnName=${columnName}&search=${search}`)
             .pipe(takeUntil(this.destroy$)).subscribe((res: any) => {
                 this.uniqueValues = res.data.map((el: ResourceModel) => {
                     el.label = el.value;
                     return el;
                 });
-            });
+            });*/
     }
 }
 

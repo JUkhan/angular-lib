@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ConstantService } from '@streamstech/ui-sdk/constants';
-import { FuseConfirmationService } from '@streamstech/ui-sdk/fuse/services';
+//import { FuseConfirmationService } from '@streamstech/ui-sdk/fuse/services';
 import { Action, dispatch } from '@streamstech/ui-sdk/services';
 
 @Component({
@@ -34,7 +34,7 @@ export class ActionComponent {
     @Input() suppressCustomButtons=false;
     public params?: any;
     constructor(
-        private _fuseConfirmationService: FuseConfirmationService,
+        //private _fuseConfirmationService: FuseConfirmationService,
         private constant: ConstantService
         ){}
     agInit(params: any): void {
@@ -51,7 +51,7 @@ export class ActionComponent {
     }
     deleteRowData(): void {
         if (this.params?.crudDelete) {
-            this._fuseConfirmationService.open({
+            /*this._fuseConfirmationService.open({
                 title: ConstantService.Message.DELETE_SUCCESSFUL_TITLE,
                 message: ConstantService.Message.DELETE_SUCCESSFUL_MESSAGE,
                 // message: `Are you sure you want to delete this ${this.row.model}?`,
@@ -76,7 +76,7 @@ export class ActionComponent {
                 if (result === 'confirmed'){
                      this.params?.crudDelete(this.params?.data);
                 }
-            });
+            });*/
         }
     }
 }

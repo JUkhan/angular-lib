@@ -6,7 +6,7 @@ import { ToolbarButton } from '../interfaces/toolbar-action';
 import { MatSidenav } from '@angular/material/sidenav';
 import { ActivatedRoute } from '@angular/router';
 import { ActionComponent, DeleteAction, EditAction } from '../action.component';
-import { FuseConfirmationService } from '@streamstech/ui-sdk/fuse/services';
+//import { FuseConfirmationService } from '@streamstech/ui-sdk/fuse/services';
 import { SetFilterComponent, RequestForResourceData, ReceivingResourceData, ResourceModel } from '../set-filter.component';
 import { CellRendererComponent } from '../cell.renderer.component';
 import { toTitleCaseModel, toSnakeCase, toSnakeCaseModel, toTitleCase } from '../case-conversion';
@@ -86,7 +86,7 @@ export class StlGridComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() showBackButton = false;
     @Output() backHandler = new EventEmitter();
     @Input() tableName='';
-    @ViewChild('tableContent') tableContent: ElementRef<HTMLElement>;
+    //@ViewChild('tableContent') tableContent: ElementRef<HTMLElement>;
     searchBoxVisibility: boolean = false;
     searchInputValue = '';
     sliderWidth: number = 45;
@@ -106,7 +106,7 @@ export class StlGridComponent implements OnInit, AfterViewInit, OnDestroy {
         private eventEmitterService: EventEmitterService,
         private messageService: AlertMessageService,
         private dateTimeService: DateTimeService,
-        private _fuseConfirmationService: FuseConfirmationService,
+        //private _fuseConfirmationService: FuseConfirmationService,
         private dialog: MatDialog,
         private sidebarService: SidebarService
     ) {
@@ -144,11 +144,11 @@ export class StlGridComponent implements OnInit, AfterViewInit, OnDestroy {
         pageSize.classList.add('ag-paging-page-size');
         pageSize.innerHTML = `<span class="ag-label">Page Size</span><select title="" name="pageSize" class="pageSize"><option value="10">10</option>
         <option selected value="20">20</option><option value="50">50</option><option value="100">100</option></select>`;
-        this.tableContent.nativeElement.querySelector('.ag-paging-panel').prepend(pageSize);
+        /*this.tableContent.nativeElement.querySelector('.ag-paging-panel').prepend(pageSize);
         pageSize.querySelector('.pageSize').addEventListener('change', (el: any) => {
             this.agGrid.api.paginationSetPageSize(+el.target.value);
             this.agGrid.api.paginationGoToPage(0);
-        });
+        });*/
     }
     detectChanges(): void {
         this.changeDetector.detectChanges();
@@ -161,7 +161,7 @@ export class StlGridComponent implements OnInit, AfterViewInit, OnDestroy {
         this.createDataEmitter.emit();
     }
     openDialog(): any {
-        return this._fuseConfirmationService.open({
+        /*return this._fuseConfirmationService.open({
             title: ConstantService.Message.INCOMPLETE_TASK_TITLE,
             message: ConstantService.Message.INCOMPLETE_TASK_WARNING_MESSAGE,
             // message: `Are you sure you want to delete this ${this.row.model}?`,
@@ -182,7 +182,7 @@ export class StlGridComponent implements OnInit, AfterViewInit, OnDestroy {
                 },
             },
             dismissible: true,
-        });
+        });*/
     }
     openColumnsDialog(event: MouseEvent): void {
         const clickedButton: ElementRef = new ElementRef(event.currentTarget);

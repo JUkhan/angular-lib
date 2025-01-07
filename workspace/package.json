@@ -17,7 +17,8 @@
     "clean": "rimraf dist",
     "goto": "cd dist/streamstech/ui-sdk/ && npm publish --registry http://702.7.127.678:4873/",
     "lib:publish": "npm-run-all clean styles lib:build goto",
-    "addUser": "npm adduser --registry http://702.7.127.678:4873/"
+    "addUser": "npm adduser --registry http://702.7.127.678:4873/",
+    "registry": "node git-script.js -b 1.0.0_dev"
   },
   "private": true,
   "dependencies": {
