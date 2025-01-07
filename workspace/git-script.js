@@ -16,7 +16,7 @@ if (!branchName) {
   process.exit(1);
 }
 
-const initialCommitHash = '0a0e6e8';
+const initialCommitHash = 'b65ba53';
 const basePath = 'dist/streamstech/ui-sdk';
 const gitDir = '.git'
 const gitignorePath = '.gitignore'
